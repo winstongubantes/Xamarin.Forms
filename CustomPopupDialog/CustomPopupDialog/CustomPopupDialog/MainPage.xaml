@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CustomPopupDialog"
+             xmlns:views="clr-namespace:CustomPopupDialog.Views;assembly=CustomPopupDialog"
+             x:Class="CustomPopupDialog.MainPage"
+             Title="Custom Dialog Test">
+  <ContentPage.Content>
+    <Grid>
+      <Button VerticalOptions="End" x:Name="BtnShowDialog" Text="ShowDialog"></Button>
+
+
+      <views:PopUpDialogView x:Name="PopUpDialog" HeaderTitle="Test Dialog">
+
+          <!--CREATE YOUR BINDABLE ELEMENTS HERE BASE FROM THE PAGES VIEW MODELS-->
+          <Label Text="This is a content"></Label>
+          
+
+      </views:PopUpDialogView>
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>
