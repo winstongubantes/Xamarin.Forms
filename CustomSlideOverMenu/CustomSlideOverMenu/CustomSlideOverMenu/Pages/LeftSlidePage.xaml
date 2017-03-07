@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CustomSlideOverMenu.ViewModels;assembly=CustomSlideOverMenu"
+             xmlns:android="clr-namespace:PlatformSpecifics.Android;assembly=CustomSlideOverMenu"
+             x:Class="CustomSlideOverMenu.Pages.LeftSlidePage">
+    <ContentPage.BindingContext>
+        <viewModels:LeftSlidePageViewModel></viewModels:LeftSlidePageViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Image Source="bg_menu.png" Aspect="AspectFill"></Image>
+
+            <StackLayout  VerticalOptions="Start" Orientation="Horizontal"  Margin="20, 0, 0, 0">
+                <Label android:CustomFont.IsCustomFont="True" FontFamily="FontAwesome" Text="&#xf002;" TextColor="{StaticResource OffWhite}" VerticalOptions="Center"></Label>
+                <Entry Placeholder="Search" PlaceholderColor="{StaticResource OffWhite}" 
+                       FontFamily="{StaticResource MontserratRegular}"  
+                       TextColor="{StaticResource OffWhite}"  
+                       FontSize="15"
+                       HorizontalOptions="FillAndExpand"></Entry>
+            </StackLayout>
+            
+            <StackLayout VerticalOptions="Center" Margin="20, 30, 0, 0">
+              <ListView ItemsSource="{Binding MenuList}" 
+                         VerticalOptions="Center"
+                        HasUnevenRows="True" 
+                        SeparatorVisibility="None"
+                        ItemSelected="ListView_OnItemSelected">
+                  <ListView.ItemTemplate>
+                      <DataTemplate>
+                          <ViewCell>
+                            <StackLayout  Orientation="Horizontal" Spacing="10" Padding="0, 15, 0, 15">
+                                    <Label  android:CustomFont.IsCustomFont="True" FontFamily="FontAwesome"  VerticalOptions="Center"  TextColor="{StaticResource OffWhite}" Text="{Binding Icon}"></Label>
+                                    <Label FontFamily="{StaticResource MontserratRegular}" Text="{Binding Title}" TextColor="{StaticResource OffWhite}" FontSize="18"   HorizontalOptions="FillAndExpand"></Label>
+                            </StackLayout>
+                          </ViewCell>
+                      </DataTemplate>
+                  </ListView.ItemTemplate>
+              </ListView>  
+            </StackLayout>
+
+
+            <Grid BackgroundColor="Black" TranslationX="220" Scale="0.6" VerticalOptions="FillAndExpand">
+                <StackLayout>
+                    <StackLayout HeightRequest="20" BackgroundColor="Accent"></StackLayout>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

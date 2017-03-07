@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CustomSlideOverMenu.App">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <!-- Fonts -->
+            <OnPlatform x:Key="MontserratRegular"
+                  x:TypeArguments="x:String"
+                  iOS="Montserrat-Regular"
+                  Android="Montserrat-Regular.ttf#Montserrat"
+                  WinPhone="Assets/Fonts/Montserrat-Regular.ttf#Montserrat"/>
+
+            <OnPlatform x:Key="MontserratBold"
+                  x:TypeArguments="x:String"
+                  iOS="Montserrat-Bold"
+                  Android="Montserrat-Bold.ttf#Montserrat"
+                  WinPhone="Assets/Fonts/Montserrat-Bold.ttf#Montserrat"/>
+
+            <OnPlatform x:Key="FontAwesome"
+                  x:TypeArguments="x:String"
+                  iOS="FontAwesome"
+                  Android="fontawesome.ttf#FontAwesome"
+                  WinPhone="Assets/Fonts/fontawesome.ttf#FontAwesome"/>
+
+
+            <!--Colors-->
+            <Color x:Key="FbBlue">#3b5998</Color>
+            <Color x:Key="OffWhite">#EAEEF7</Color>
+        </ResourceDictionary>
+
+    </Application.Resources>
+</Application>
