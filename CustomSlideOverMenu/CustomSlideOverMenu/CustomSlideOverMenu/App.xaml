@@ -28,6 +28,8 @@
             <!--Colors-->
             <Color x:Key="FbBlue">#3b5998</Color>
             <Color x:Key="OffWhite">#EAEEF7</Color>
+            <Color x:Key="DarkOffWhite">#D3D5D8</Color>
+            <Color x:Key="DarkerOffWhite">#8C9097</Color>
         </ResourceDictionary>
 
     </Application.Resources>

@@ -6,7 +6,6 @@ using PlatformSpecifics.Android;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ResolutionGroupName("Custom")]
 [assembly: ExportEffect(typeof(CustomFontEffect), "FontEffect")]
 namespace CustomSlideOverMenu.Droid.Effects
 {

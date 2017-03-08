@@ -3,21 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:CustomSlideOverMenu.ViewModels;assembly=CustomSlideOverMenu"
              xmlns:android="clr-namespace:PlatformSpecifics.Android;assembly=CustomSlideOverMenu"
+             xmlns:effects="clr-namespace:CustomSlideOverMenu.Effects;assembly=CustomSlideOverMenu"
+             xmlns:behaviors="clr-namespace:CustomSlideOverMenu.Behaviors;assembly=CustomSlideOverMenu"
+             xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              x:Class="CustomSlideOverMenu.Pages.LeftSlidePage">
     <ContentPage.BindingContext>
         <viewModels:LeftSlidePageViewModel></viewModels:LeftSlidePageViewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid>
-            <Image Source="bg_menu.png" Aspect="AspectFill"></Image>
+            <ffimage:CachedImage DownsampleToViewSize="True" 
+                                 Source="bg_menu.png" 
+                                 Aspect="AspectFill">
+            </ffimage:CachedImage>
 
-            <StackLayout  VerticalOptions="Start" Orientation="Horizontal"  Margin="20, 0, 0, 0">
-                <Label android:CustomFont.IsCustomFont="True" FontFamily="FontAwesome" Text="&#xf002;" TextColor="{StaticResource OffWhite}" VerticalOptions="Center"></Label>
-                <Entry Placeholder="Search" PlaceholderColor="{StaticResource OffWhite}" 
+            <StackLayout  VerticalOptions="Start"  Margin="20, 0, 20, 0" Spacing="0">
+                <StackLayout  Orientation="Horizontal">
+                    <Label android:CustomFont.IsCustomFont="True" 
+                       FontFamily="FontAwesome" 
+                       FontSize="18"
+                       Text="&#xf002;" 
+                       TextColor="{StaticResource OffWhite}" 
+                       VerticalOptions="Center"></Label>
+
+                    <Entry Placeholder="Search" 
+                       PlaceholderColor="{StaticResource DarkOffWhite}" 
                        FontFamily="{StaticResource MontserratRegular}"  
                        TextColor="{StaticResource OffWhite}"  
                        FontSize="15"
-                       HorizontalOptions="FillAndExpand"></Entry>
+                       HorizontalOptions="FillAndExpand">
+                        <Entry.Behaviors>
+                            <behaviors:LineFocusEntryBehavior FocusBackgroundColor="White" 
+                                                          UnFocusBackgroundColor="White"
+                                                          x:Name="BehaviorTxtSearch" >
+                            </behaviors:LineFocusEntryBehavior>
+                        </Entry.Behaviors>
+                        <Entry.Effects>
+                            <effects:NoBorderEntryEffect></effects:NoBorderEntryEffect>
+                        </Entry.Effects>
+                    </Entry>
+                </StackLayout>
+               
+                <BoxView x:Name="BxSearch"
+                      HeightRequest="1"
+                      BackgroundColor="{Binding Source={x:Reference BehaviorTxtSearch}, Path=BackgroundColor}" />
             </StackLayout>
             
             <StackLayout VerticalOptions="Center" Margin="20, 30, 0, 0">
@@ -25,13 +55,23 @@
                          VerticalOptions="Center"
                         HasUnevenRows="True" 
                         SeparatorVisibility="None"
-                        ItemSelected="ListView_OnItemSelected">
+                        ItemSelected="Menu_OnItemSelected">
                   <ListView.ItemTemplate>
                       <DataTemplate>
                           <ViewCell>
                             <StackLayout  Orientation="Horizontal" Spacing="10" Padding="0, 15, 0, 15">
-                                    <Label  android:CustomFont.IsCustomFont="True" FontFamily="FontAwesome"  VerticalOptions="Center"  TextColor="{StaticResource OffWhite}" Text="{Binding Icon}"></Label>
-                                    <Label FontFamily="{StaticResource MontserratRegular}" Text="{Binding Title}" TextColor="{StaticResource OffWhite}" FontSize="18"   HorizontalOptions="FillAndExpand"></Label>
+                                    <Label  android:CustomFont.IsCustomFont="True" 
+                                            FontFamily="FontAwesome"  
+                                            VerticalOptions="Center"
+                                            FontSize="18"
+                                            TextColor="{StaticResource OffWhite}" 
+                                            Text="{Binding Icon}"></Label>
+                                
+                                    <Label FontFamily="{StaticResource MontserratRegular}" 
+                                           Text="{Binding Title}" 
+                                           TextColor="{StaticResource OffWhite}" 
+                                           FontSize="18"   
+                                           HorizontalOptions="FillAndExpand"></Label>
                             </StackLayout>
                           </ViewCell>
                       </DataTemplate>
@@ -39,10 +79,108 @@
               </ListView>  
             </StackLayout>
 
-
-            <Grid BackgroundColor="Black" TranslationX="220" Scale="0.6" VerticalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="End" Orientation="Horizontal"  Margin="20, 0, 0, 30" Spacing="20">
+                <ffimage:CachedImage  Source="winston.jpg"
+                                      DownsampleToViewSize="True"
+                                      Aspect="AspectFit"
+                                      VerticalOptions="Center"
+                                      HeightRequest="40">
+                    <ffimage:CachedImage.Transformations>
+                        <transformations:CircleTransformation />
+                    </ffimage:CachedImage.Transformations>
+                </ffimage:CachedImage>
+                <Label FontFamily="{StaticResource MontserratRegular}" 
+                        Text="Xamarin Evangelist" 
+                        TextColor="{StaticResource OffWhite}" 
+                        FontSize="18"   
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand"></Label>
+            </StackLayout>
+            
+            <Grid x:Name="MainViewGrid" VerticalOptions="FillAndExpand">
+                <ffimage:CachedImage DownsampleToViewSize="True" 
+                                 Source="burjkalifha_bg.jpg" 
+                                 Aspect="AspectFill">
+                </ffimage:CachedImage>
                 <StackLayout>
-                    <StackLayout HeightRequest="20" BackgroundColor="Accent"></StackLayout>
+                    <Grid VerticalOptions="Start" Margin="10, 10, 10, 10">
+                        <Label  android:CustomFont.IsCustomFont="True" 
+                            FontFamily="FontAwesome"  
+                            FontSize="25"
+                            VerticalOptions="Center"
+                            TextColor="{StaticResource OffWhite}" 
+                            Text="&#xf0c9;">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ToggleMenuCommand}"></TapGestureRecognizer>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label FontFamily="{StaticResource MontserratBold}" 
+                            Text="iTravel" 
+                            FontAttributes="Bold"
+                            TextColor="{StaticResource OffWhite}" 
+                            FontSize="38"   
+                            HorizontalTextAlignment="Center"
+                            HorizontalOptions="FillAndExpand"></Label>
+                    </Grid>
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"  Margin="20, 0, 20, 0">
+                        <ListView ItemsSource="{Binding ConversationList}" 
+                            VerticalOptions="FillAndExpand"
+                            HasUnevenRows="True" 
+                            SeparatorVisibility="None"
+                            ItemSelected="Message_OnItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Padding="0, 15, 0, 15">
+
+                                            <StackLayout HorizontalOptions="FillAndExpand"
+                                                         VerticalOptions="Start"
+                                                         Margin="50, 0, 0, 0">
+                                                <Label FontFamily="{StaticResource MontserratBold}" 
+                                                        Text="WINSTON GUBANTES" 
+                                                        TextColor="{StaticResource DarkerOffWhite}" 
+                                                        FontSize="12"   
+                                                        FontAttributes="Bold"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="FillAndExpand"></Label>              
+                                            </StackLayout>
+
+                                            <StackLayout BackgroundColor="White" 
+                                                         HorizontalOptions="FillAndExpand"
+                                                         VerticalOptions="Start"
+                                                         Margin="20, 25, 0, 0">
+                                                <Label FontFamily="{StaticResource MontserratRegular}" 
+                                                        Text="{Binding Text}" 
+                                                        TextColor="{StaticResource OffWhite}" 
+                                                        FontSize="18"   
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="FillAndExpand"></Label>
+                                                <Label FontFamily="{StaticResource MontserratRegular}" 
+                                                        Text="{Binding Text}" 
+                                                        TextColor="{StaticResource OffWhite}" 
+                                                        FontSize="18"   
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="FillAndExpand"></Label>
+
+                                            </StackLayout>
+                                            
+                                            <ffimage:CachedImage  Source="winston.jpg"
+                                                      DownsampleToViewSize="True"
+                                                      Aspect="AspectFit"
+                                                      HorizontalOptions="Start"
+                                                      VerticalOptions="Start"
+                                                      HeightRequest="40">
+                                                <ffimage:CachedImage.Transformations>
+                                                    <transformations:CircleTransformation />
+                                                </ffimage:CachedImage.Transformations>
+                                            </ffimage:CachedImage>
+                                            
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
                 </StackLayout>
             </Grid>
         </Grid>
