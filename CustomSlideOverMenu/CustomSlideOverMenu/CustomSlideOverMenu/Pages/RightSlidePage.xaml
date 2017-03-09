@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:CustomSlideOverMenu.ViewModels;assembly=CustomSlideOverMenu"
-             xmlns:android="clr-namespace:PlatformSpecifics.Android;assembly=CustomSlideOverMenu"
-             xmlns:effects="clr-namespace:CustomSlideOverMenu.Effects;assembly=CustomSlideOverMenu"
-             xmlns:behaviors="clr-namespace:CustomSlideOverMenu.Behaviors;assembly=CustomSlideOverMenu"
              xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:android="clr-namespace:PlatformSpecifics.Android;assembly=CustomSlideOverMenu"
+             xmlns:behaviors="clr-namespace:CustomSlideOverMenu.Behaviors;assembly=CustomSlideOverMenu"
+             xmlns:effects="clr-namespace:CustomSlideOverMenu.Effects;assembly=CustomSlideOverMenu"
              xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-             x:Class="CustomSlideOverMenu.Pages.LeftSlidePage">
+             x:Class="CustomSlideOverMenu.Pages.RightSlidePage">
     <ContentPage.BindingContext>
         <viewModels:MenuPageViewModel></viewModels:MenuPageViewModel>
     </ContentPage.BindingContext>
@@ -44,42 +44,52 @@
                         </Entry.Effects>
                     </Entry>
                 </StackLayout>
-               
+
                 <BoxView x:Name="BxSearch"
                       HeightRequest="1"
                       BackgroundColor="{Binding Source={x:Reference BehaviorTxtSearch}, Path=BackgroundColor}" />
             </StackLayout>
-            
-            <StackLayout VerticalOptions="Center" Margin="20, 30, 0, 0">
-              <ListView ItemsSource="{Binding MenuList}" 
+
+            <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Margin="0, 30, 20, 0">
+                <ListView ItemsSource="{Binding MenuList}" 
                          VerticalOptions="Center"
                         HasUnevenRows="True" 
                         SeparatorVisibility="None"
                         ItemSelected="Menu_OnItemSelected">
-                  <ListView.ItemTemplate>
-                      <DataTemplate>
-                          <ViewCell>
-                            <StackLayout  Orientation="Horizontal" Spacing="10" Padding="0, 15, 0, 15">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout HorizontalOptions="End"  Orientation="Horizontal" Spacing="10" Padding="0, 15, 0, 15">
                                     <Label  android:CustomFont.IsCustomFont="True" 
                                             FontFamily="FontAwesome"  
                                             VerticalOptions="Center"
                                             FontSize="18"
                                             TextColor="{StaticResource OffWhite}" 
                                             Text="{Binding Icon}"></Label>
-                                
+
                                     <Label FontFamily="{StaticResource MontserratRegular}" 
                                            Text="{Binding Title}" 
                                            TextColor="{StaticResource OffWhite}" 
                                            FontSize="18"   
+                                           WidthRequest="100"
+                                           HorizontalTextAlignment="Start"
                                            HorizontalOptions="FillAndExpand"></Label>
-                            </StackLayout>
-                          </ViewCell>
-                      </DataTemplate>
-                  </ListView.ItemTemplate>
-              </ListView>  
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
 
-            <StackLayout VerticalOptions="End" Orientation="Horizontal"  Margin="20, 0, 0, 30" Spacing="20">
+            <StackLayout VerticalOptions="End" HorizontalOptions="End" Orientation="Horizontal"  Margin="0, 0, 20, 30" Spacing="20">
+                
+                <Label FontFamily="{StaticResource MontserratRegular}" 
+                        Text="Xamarin Evangelist" 
+                        TextColor="{StaticResource OffWhite}" 
+                        FontSize="18"   
+                        VerticalOptions="Center"
+                        HorizontalOptions="FillAndExpand"></Label>
+
                 <ffimage:CachedImage  Source="winston.jpg"
                                       DownsampleToViewSize="True"
                                       Aspect="AspectFit"
@@ -89,15 +99,9 @@
                         <transformations:CircleTransformation />
                     </ffimage:CachedImage.Transformations>
                 </ffimage:CachedImage>
-                <Label FontFamily="{StaticResource MontserratRegular}" 
-                        Text="Xamarin Evangelist" 
-                        TextColor="{StaticResource OffWhite}" 
-                        FontSize="18"   
-                        VerticalOptions="Center"
-                        HorizontalOptions="FillAndExpand"></Label>
             </StackLayout>
-            
-            
+
+
             <!--MAIN PAGE-->
             <Grid x:Name="MainViewGrid" VerticalOptions="FillAndExpand">
                 <ffimage:CachedImage DownsampleToViewSize="True" 
@@ -110,6 +114,7 @@
                             FontFamily="FontAwesome"  
                             FontSize="25"
                             VerticalOptions="Start"
+                            HorizontalOptions="End"
                             TextColor="{StaticResource OffWhite}" 
                             Text="&#xf0c9;">
                             <Label.GestureRecognizers>
@@ -144,7 +149,7 @@
                                                         FontSize="12"   
                                                         FontAttributes="Bold"
                                                         VerticalOptions="Center"
-                                                        HorizontalOptions="FillAndExpand"></Label>              
+                                                        HorizontalOptions="FillAndExpand"></Label>
                                             </StackLayout>
 
                                             <StackLayout BackgroundColor="White" 
@@ -165,7 +170,7 @@
                                                         HorizontalOptions="FillAndExpand"></Label>
 
                                             </StackLayout>
-                                            
+
                                             <ffimage:CachedImage  Source="winston.jpg"
                                                       DownsampleToViewSize="True"
                                                       Aspect="AspectFit"
@@ -176,7 +181,7 @@
                                                     <transformations:CircleTransformation />
                                                 </ffimage:CachedImage.Transformations>
                                             </ffimage:CachedImage>
-                                            
+
                                         </Grid>
                                     </ViewCell>
                                 </DataTemplate>

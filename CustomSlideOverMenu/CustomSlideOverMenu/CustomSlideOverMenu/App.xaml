@@ -24,6 +24,11 @@
                   Android="fontawesome.ttf#FontAwesome"
                   WinPhone="Assets/Fonts/fontawesome.ttf#FontAwesome"/>
 
+            <OnPlatform x:Key="Amontillado"
+                  x:TypeArguments="x:String"
+                  iOS="Amontillado"
+                  Android="Amontillado.ttf#Amontillado"
+                  WinPhone="Assets/Fonts/Amontillado.ttf#Amontillado"/>
 
             <!--Colors-->
             <Color x:Key="FbBlue">#3b5998</Color>

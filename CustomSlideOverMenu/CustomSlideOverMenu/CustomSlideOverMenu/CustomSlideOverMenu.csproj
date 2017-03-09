@@ -50,9 +50,12 @@
     <Compile Include="Pages\LeftSlidePage.xaml.cs">
       <DependentUpon>LeftSlidePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\RightSlidePage.xaml.cs">
+      <DependentUpon>RightSlidePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PlatformSpecifics\CustomFont.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\LeftSlidePageViewModel.cs" />
+    <Compile Include="ViewModels\MenuPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainPage.xaml">
@@ -102,6 +105,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\LeftSlidePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\RightSlidePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

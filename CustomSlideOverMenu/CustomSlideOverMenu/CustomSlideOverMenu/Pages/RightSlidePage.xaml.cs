@@ -1,22 +1,21 @@
-﻿using System;
+﻿using CustomSlideOverMenu.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CustomSlideOverMenu.Animations;
-using CustomSlideOverMenu.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace CustomSlideOverMenu.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LeftSlidePage : ContentPage
+    public partial class RightSlidePage : ContentPage
     {
-        public LeftSlidePage()
+        public RightSlidePage()
         {
             InitializeComponent();
-
             NavigationPage.SetHasNavigationBar(this, false);
         }
 
@@ -24,17 +23,17 @@ namespace CustomSlideOverMenu.Pages
         {
             base.OnAppearing();
 
-            var viewModel = (MenuPageViewModel) BindingContext;
+            var viewModel = (MenuPageViewModel)BindingContext;
 
             viewModel.ToggleMenuAction = () =>
             {
                 if (MainViewGrid.TranslationX == 0)
                 {
-                    ToggleMenu(0, 210, 1, 0.6);
+                    ToggleMenu(0, -210, 1, 0.6);
                 }
                 else
                 {
-                    ToggleMenu(210, 0, 0.6, 1);
+                    ToggleMenu(-210, 0, 0.6, 1);
                 }
             };
         }
@@ -50,9 +49,9 @@ namespace CustomSlideOverMenu.Pages
 
         private void Menu_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var listView = (ListView) sender;
+            var listView = (ListView)sender;
 
-            ToggleMenu(210, 0, 0.6, 1);
+            ToggleMenu(-210, 0, 0.6, 1);
 
             if (listView.SelectedItem != null)
                 listView.SelectedItem = null;

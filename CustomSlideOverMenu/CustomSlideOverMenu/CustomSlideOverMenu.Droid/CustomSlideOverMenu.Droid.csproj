@@ -145,9 +145,11 @@
     <AndroidAsset Include="..\CustomSlideOverMenu.Common\Fonts\fontawesome.ttf">
       <Link>Assets\fontawesome.ttf</Link>
     </AndroidAsset>
+    <AndroidAsset Include="..\CustomSlideOverMenu.Common\Fonts\Amontillado.ttf">
+      <Link>Assets\Amontillado.ttf</Link>
+    </AndroidAsset>
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />

@@ -13,7 +13,7 @@ using MenuItem = CustomSlideOverMenu.Models.MenuItem;
 
 namespace CustomSlideOverMenu.ViewModels
 {
-    public class LeftSlidePageViewModel : INotifyPropertyChanged
+    public class MenuPageViewModel : INotifyPropertyChanged
     {
         private ObservableCollection<MenuItem> _menuList;
         private ObservableCollection<Message> _conversationList;
@@ -23,7 +23,7 @@ namespace CustomSlideOverMenu.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public Action ToggleMenuAction { get; set; }
 
-        public LeftSlidePageViewModel()
+        public MenuPageViewModel()
         {
             MenuList = new ObservableCollection<MenuItem>();
 

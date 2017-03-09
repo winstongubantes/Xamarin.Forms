@@ -13,7 +13,7 @@ namespace CustomSlideOverMenu
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage( new LeftSlidePage());
+            MainPage = new NavigationPage( new RightSlidePage());
         }
 
         protected override void OnStart()
