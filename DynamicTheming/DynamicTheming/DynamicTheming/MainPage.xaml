@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DynamicTheming"
+             xmlns:viewModels="clr-namespace:DynamicTheming.ViewModels;assembly=DynamicTheming"
+             x:Class="DynamicTheming.MainPage"
+             Title="Dynamic Theming">
+    <ContentPage.BindingContext>
+        <viewModels:MainPageViewModel></viewModels:MainPageViewModel>
+    </ContentPage.BindingContext>
+	<StackLayout Margin="40" Spacing="20">
+        <Picker x:Name="ThemePicker" ItemsSource="{Binding ThemeModels}"  Title="Select Theme" TextColor="{DynamicResource LabelColor}" SelectedIndexChanged="Picker_OnSelectedIndexChanged"></Picker>
+        
+        <Label Text="Test Label" TextColor="{DynamicResource LabelColor}"></Label>
+
+        <Entry Text="Test Entry" TextColor="{DynamicResource EntryColor}"></Entry>
+        
+        <Button Text="Test Button" 
+                TextColor="{DynamicResource ButtonFontColor}" 
+                BackgroundColor="{DynamicResource ButtonColor}"></Button>
+    </StackLayout>
+</ContentPage>

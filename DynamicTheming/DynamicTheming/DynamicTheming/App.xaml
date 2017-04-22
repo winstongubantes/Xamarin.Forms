@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:DynamicTheming.Extensions;assembly=DynamicTheming"
+             x:Class="DynamicTheming.App">
+	<Application.Resources>
+
+		<!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <!--Theme-->
+
+            <extensions:OnTheme x:Key="ButtonColor"
+                  x:TypeArguments="Color"
+                  Light="#4AADFF"
+                  Lighter="#6FBEFF"
+                  Dark="#0080FF"
+                  Darker="#0000FE"/>
+
+            <extensions:OnTheme x:Key="ButtonFontColor"
+                  x:TypeArguments="Color"
+                  Light="#0080FF"
+                  Lighter="#0100FE"
+                  Dark="#B7FFFC"
+                  Darker="#B7FFD9"/>
+
+            <extensions:OnTheme x:Key="LabelColor"
+                  x:TypeArguments="Color"
+                  Light="#4AADFF"
+                  Lighter="#6FBEFF"
+                  Dark="#0080FF"
+                  Darker="#0000FE"/>
+
+
+            <extensions:OnTheme x:Key="EntryColor"
+                  x:TypeArguments="Color"
+                  Light="#4AADFF"
+                  Lighter="#6FBEFF"
+                  Dark="#0080FF"
+                  Darker="#0000FE"/>
+
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>
