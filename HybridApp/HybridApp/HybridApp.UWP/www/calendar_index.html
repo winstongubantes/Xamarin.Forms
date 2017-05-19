@@ -1,0 +1,102 @@
+﻿<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="styles/calendar/semantic.ui.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/calendar/prism.css" />
+    <link rel="stylesheet" type="text/css" href="styles/calendar/calendar-style.css" />
+    <link rel="stylesheet" type="text/css" href="styles/calendar/style.css" />
+    <link rel="stylesheet" type="text/css" href="styles/calendar/pignose.calendar.min.css" />
+
+    <style type="text/css">
+        .input-calendar {
+            display: block;
+            width: 100%;
+            max-width: 360px;
+            margin: 0 auto;
+            height: 3.2em;
+            line-height: 3.2em;
+            font: inherit;
+            padding: 0 1.2em;
+            border: 1px solid #d8d8d8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+            -o-box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+            -moz-box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+            -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+        }
+    
+        .btn-calendar {
+            display: block;
+            width: 100%;
+            max-width: 360px;
+            height: 3.2em;
+            line-height: 3.2em;
+            background-color: #52555a;
+            margin: 0 auto;
+            font-weight: 600;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+            -o-box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+            -moz-box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+            -webkit-box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+        }
+    
+        .btn-calendar:hover {
+            background-color: #5a6268;
+        }
+    </style>
+    <script type="text/javascript" src="scripts/calendar/jquery.latest.min.js"></script>
+    <script type="text/javascript" src="scripts/calendar/moment.latest.min.js"></script>
+    <script type="text/javascript" src="scripts/calendar/semantic.ui.min.js"></script>
+    <script type="text/javascript" src="scripts/calendar/prism.min.js"></script>
+    <script type="text/javascript" src="scripts/calendar/pignose.calendar.min.js"></script>
+    <script>
+        $(function() {
+            function onSelectHandler(date, context) {
+                /**
+                 * @date is an array which be included dates(clicked date at first index)
+                 * @context is an object which stored calendar interal data.
+                 * @context.calendar is a root element reference.
+                 * @context.calendar is a calendar element reference.
+                 * @context.storage.activeDates is all toggled data, If you use toggle type calendar.
+                 * @context.storage.events is all events associated to this date
+                 */
+
+                //var $element = context.element;
+                //var $calendar = context.calendar;
+                //var $box = $element.siblings('.box').show();
+                var text = 'You choose date ';
+
+                if (date[0] !== null) {
+                    text += date[0].format('YYYY-MM-DD');
+                }
+
+                if (date[0] !== null && date[1] !== null) {
+                    text += ' ~ ';
+                } else if (date[0] === null && date[1] == null) {
+                    text += 'nothing';
+                }
+
+                if (date[1] !== null) {
+                    text += date[1].format('YYYY-MM-DD');
+                }
+
+                csharp("{'action': 'selectdate', 'data': '" + text +"'}");
+            };
+
+
+            // Default Calendar
+            $('.calendar').pignoseCalendar({
+                select: onSelectHandler,
+                theme: 'blue' // light, dark, blue
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="calendar" style="margin-top: 20px;"></div>
+</body>
+</html>
