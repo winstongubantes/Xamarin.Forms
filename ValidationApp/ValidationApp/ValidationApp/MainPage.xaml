@@ -2,10 +2,31 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ValidationApp"
-             x:Class="ValidationApp.MainPage">
+             xmlns:behaviors="clr-namespace:ValidationApp.Behaviors;assembly=ValidationApp"
+             x:Class="ValidationApp.MainPage"
+             Title="Simple Validation">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+	<StackLayout Margin="20, 40, 20, 20" Spacing="20">
+        <Entry Placeholder="Enter a Code here">
+            <Entry.Behaviors>
+                <behaviors:EntryValidatorBehavior x:Name="CodeValidator"/>
+            </Entry.Behaviors>
+        </Entry>
+        
+        <Button Text="Submit" Clicked="Button_OnClicked">
+            <Button.Triggers>
+                <DataTrigger TargetType="Button"
+                             Binding="{Binding Source={x:Reference CodeValidator}, Path=IsValid}"
+                             Value="True">
+                    <Setter Property="IsEnabled" Value="True" />
+                </DataTrigger>
+                <DataTrigger TargetType="Button"
+                             Binding="{Binding Source={x:Reference CodeValidator}, Path=IsValid}"
+                             Value="False">
+                    <Setter Property="IsEnabled" Value="False" />
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+    </StackLayout>
 
 </ContentPage>

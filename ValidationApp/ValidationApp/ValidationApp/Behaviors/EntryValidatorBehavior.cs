@@ -11,7 +11,8 @@ namespace ValidationApp.Behaviors
     public class EntryValidatorBehavior : BehaviorBase<Entry>
     {
         public static readonly BindableProperty IsValidProperty = 
-            BindableProperty.Create(nameof(IsValid), typeof(bool), typeof(EntryValidatorBehavior), false, BindingMode.OneWayToSource);        
+            BindableProperty.Create(nameof(IsValid), typeof(bool), 
+                typeof(EntryValidatorBehavior), false, BindingMode.OneWayToSource);        
 
         public bool IsValid
         {

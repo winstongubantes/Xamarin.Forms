@@ -13,7 +13,7 @@ namespace ValidationApp
         {
             InitializeComponent();
 
-            MainPage = new ValidationApp.MainPage();
+            MainPage = new NavigationPage(new ValidationApp.MainPage());
         }
 
         protected override void OnStart()

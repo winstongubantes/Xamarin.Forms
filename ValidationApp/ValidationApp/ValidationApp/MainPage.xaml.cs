@@ -13,5 +13,11 @@ namespace ValidationApp
         {
             InitializeComponent();
         }
+
+        //THIS IS NOT THE ELEGANT WAY (THIS SHOULD HAVE BEEN IN VIEWMDOEL)
+        private void Button_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MoreAwesomeValidationPage());
+        }
     }
 }
