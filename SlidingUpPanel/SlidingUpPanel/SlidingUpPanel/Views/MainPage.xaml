@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SlidingUpPanel.Views.MainPage"
+             Title="{Binding Title}">
+
+    <Grid x:Name="MainLayout">
+        <Image Source="map_bg.png" Aspect="AspectFill"></Image>
+
+        <!--CHILD ELEMTENTS HERE-->
+        <StackLayout  x:Name="QuickMenuPullLayout"
+                          HorizontalOptions="FillAndExpand"     
+                          VerticalOptions="End"
+                          Spacing="0">
+
+
+            <Grid x:Name="QuickMenuLayout">
+                <StackLayout BackgroundColor="White" Opacity="0.8"></StackLayout>
+
+                <Grid   x:Name="QuickMenuInnerLayout"
+                            Padding="20,20,20,10"
+                            HorizontalOptions="FillAndExpand" 
+                            VerticalOptions="End">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout  x:Name="Fb" 
+                                      VerticalOptions="FillAndExpand"
+                                      HorizontalOptions="FillAndExpand"
+                                      Grid.Column="0" 
+                                      Grid.Row="0">
+                        <Image Source="if_facebook_circle_color_107175.png" 
+                                               HeightRequest="60"
+                                               WidthRequest="60"
+                                               Aspect="AspectFit"></Image>
+                        <Label Text="FACEBOOK" 
+                                   TextColor="#1976D2" 
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                    </StackLayout>
+
+                    <StackLayout  x:Name="Twitter"
+                                      VerticalOptions="FillAndExpand"
+                                      HorizontalOptions="FillAndExpand"
+                                      Grid.Column="1" 
+                                      Grid.Row="0">
+                        <Image Source="if_twitter_circle_color_107170.png" 
+                                               HeightRequest="60"
+                                               WidthRequest="60"
+                                               Aspect="AspectFit"></Image>
+
+                        <Label Text="TWITTER" 
+                                   TextColor="#1976D2" 
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                    </StackLayout>
+
+                    <StackLayout  x:Name="Google"
+                                      VerticalOptions="FillAndExpand"
+                                      HorizontalOptions="FillAndExpand"
+                                      Grid.Column="2" 
+                                      Grid.Row="0">
+                        <Image Source="if_google_circle_color_107180.png" 
+                                               HeightRequest="60"
+                                               WidthRequest="60"
+                                               Aspect="AspectFit"></Image>
+                        <Label Text="GOOGLE" 
+                                   TextColor="#1976D2" 
+                                   HorizontalOptions="FillAndExpand"
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="Small"></Label>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+
+            <Grid x:Name="Notification"  HeightRequest="200">
+                <StackLayout BackgroundColor="Black" Opacity="0.3"></StackLayout>
+
+                <ScrollView Margin="10,10,10,0">
+                    <Image Source="list.png"></Image>
+
+                </ScrollView>
+
+            </Grid>
+        </StackLayout>
+    </Grid>
+
+</ContentPage>

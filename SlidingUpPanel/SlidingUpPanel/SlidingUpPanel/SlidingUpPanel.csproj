@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reactive" Version="4.0.0-preview00001" />
+    <PackageReference Include="Xamarin.Forms" Version="2.4.0.282" />
+    <PackageReference Include="Prism.Autofac.Forms" Version="7.0.0.168-pre" />
+  </ItemGroup>
+
+</Project>
