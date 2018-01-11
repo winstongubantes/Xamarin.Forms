@@ -15,6 +15,7 @@ namespace FloatingActionButton.Views
         public FloatingButtonPage()
         {
             InitializeComponent();
+            InitializeGestureCommands();
         }
 
         protected override void OnAppearing()
@@ -22,7 +23,6 @@ namespace FloatingActionButton.Views
             base.OnAppearing();
 
             InitializeButton();
-            InitializeGestureCommands();
         }
 
         private void InitializeGestureCommands()
@@ -60,11 +60,19 @@ namespace FloatingActionButton.Views
 
         private void InitializeButton()
         {
+            _isOpenMenu = false;
+
+
             Task.Delay(600).ContinueWith(t =>
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
+                    ButtonLayout.TranslationY = BlueBarLayout.Height;
+                    MenuLayout.TranslationY = BlueBarLayout.Height;
+                    BlueBarLayout.TranslationY = BlueBarLayout.Height;
+                    ButtonLayout.IsVisible = true;
                     ButtonLayout.TranslationX = (Width / 2) - ButtonLayout.Height;
+
                     AnimateButtonOut();
                 });
             });
