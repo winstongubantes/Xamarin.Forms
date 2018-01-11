@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:constants="clr-namespace:FloatingActionButton.Constants;assembly=FloatingActionButton"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="FloatingActionButton.Views.FloatingButtonPage"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#3A3A39"
+             x:Name="ParentPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="AwesomeFont">
+                <On Platform="Android" Value="fontawesome.ttf#FontAwesome" />
+                <On Platform="UWP" Value="/Assets/fontawesome.ttf#FontAwesome" />
+                <On Platform="iOS" Value="FontAwesome" />
+            </OnPlatform>
+
+            <Style x:Key="FontAwesomeStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
+                <Setter Property="FontSize" Value="35" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="Opacity" Value="0.75" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="FontAwesomeStyleBtn" TargetType="Label">
+                <Setter Property="FontFamily" Value="{StaticResource AwesomeFont}" />
+                <Setter Property="FontSize" Value="75" />
+                <Setter Property="TextColor" Value="#2196F3" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+                <Setter Property="VerticalTextAlignment" Value="Start" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Image Source="image_1.jpg" HorizontalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+                <Image Source="image_2.jpg" HorizontalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+                <Image Source="image_3.jpg" HorizontalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+            </StackLayout>
+            <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Image Source="image_4.jpg" HorizontalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+                <Image Source="image_5.jpg" HorizontalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+            </StackLayout>
+            <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                <Image Source="image_6.jpg" HorizontalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+            </StackLayout>
+        </Grid>
+
+        <Grid VerticalOptions="End" HorizontalOptions="FillAndExpand">
+            <StackLayout x:Name="BlueBarLayout"  
+                         BackgroundColor="#2196F3" 
+                         TranslationY="60"
+                         WidthRequest="60"
+                         HeightRequest="60" 
+                         HorizontalOptions="Center">
+            </StackLayout>
+            <Grid x:Name="ButtonLayout"  
+                    HeightRequest="60" 
+                    TranslationY="60"
+                    HorizontalOptions="Center">
+                <StackLayout>
+                    <Label Style="{StaticResource FontAwesomeStyleBtn}"
+                            Text="{x:Static constants:FontAwesomeConstant.Circle}"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             TranslationY="8">
+                    <Label  TextColor="White"
+                           FontFamily="{StaticResource AwesomeFont}" 
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"
+                           FontSize="30" 
+                           Text="{x:Static constants:FontAwesomeConstant.List}">
+                    </Label>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout x:Name="MenuLayout" 
+                         HeightRequest="60" 
+                         TranslationY="60"
+                         Opacity="0.2"
+                         HorizontalOptions="FillAndExpand" 
+                         Orientation="Horizontal">
+                <Label x:Name="GoogleButton"  Style="{StaticResource FontAwesomeStyle}"
+                        Text="{x:Static constants:FontAwesomeConstant.Google}">
+                </Label>
+                <Label x:Name="FbButton" Style="{StaticResource FontAwesomeStyle}"
+                        Text="{x:Static constants:FontAwesomeConstant.Facebook}">
+                </Label>
+                <Label x:Name="TwitterButton" Style="{StaticResource FontAwesomeStyle}"
+                        Text="{x:Static constants:FontAwesomeConstant.Twitter}">
+                </Label>
+                <Label x:Name="LinkedButton" Style="{StaticResource FontAwesomeStyle}"
+                        Text="{x:Static constants:FontAwesomeConstant.LinkedIn}">
+                </Label>
+                <Label x:Name="TelegramButton" Style="{StaticResource FontAwesomeStyle}"
+                        Text="{x:Static constants:FontAwesomeConstant.Telegram}">
+                </Label>
+            </StackLayout>
+        </Grid>
+        
+    </Grid>
+</ContentPage>
