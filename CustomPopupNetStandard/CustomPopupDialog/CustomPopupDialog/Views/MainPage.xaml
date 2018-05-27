@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:popupdialogs="clr-namespace:CustomPopupDialog.Views.PopupDialogs"
+             xmlns:local="clr-namespace:CustomPopupDialog.Models;assembly=CustomPopupDialog"
+             x:Class="CustomPopupDialog.Views.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <Grid BackgroundColor="WhiteSmoke">
+            <StackLayout VerticalOptions="Center">
+                <Button x:Name="BtnShowDefaultDialog" 
+                        Text="Show Dialog Without Content"
+                        Command="{Binding Source={x:Reference PopUpDefaultDialog}, Path=ShowDialogCommand}"/>
+
+                <Button x:Name="BtnShowDialog" 
+                        Text="Show Dialog With Header"
+                        Command="{Binding Source={x:Reference PopUpHeaderDialog}, Path=ShowDialogCommand}"/>
+
+                <Button x:Name="BtnShowBgDialog" 
+                        Text="Show Dialog Without Background"
+                        Command="{Binding Source={x:Reference PopUpBgDialog}, Path=ShowDialogCommand}"/>
+
+                <Button x:Name="BtnShowListDialog" 
+                        Text="Show Dialog With ListView"
+                        Command="{Binding Source={x:Reference PopUpListDialog}, Path=ShowDialogCommand}"/>
+            </StackLayout>
+
+            <!--DIALOG DEFAULT-->
+            <popupdialogs:PopupDialogView x:Name="PopUpDefaultDialog"
+                                          DialogMargin="10, 60, 10, 60">
+            </popupdialogs:PopupDialogView>
+
+            <!--DIALOG WITH HEADER-->
+            <popupdialogs:PopupDialogView x:Name="PopUpHeaderDialog"
+                                          DialogMargin="10, 60, 10, 60">
+                <StackLayout>
+                    <!--HEADER-->
+                    <Grid VerticalOptions="Start"
+                          HorizontalOptions="FillAndExpand"
+                          HeightRequest="50"
+                          MinimumHeightRequest="50"
+                          BackgroundColor="#0783B0">
+                        <Label  VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="Data Entry" 
+                                TextColor="White"
+                                FontSize="Medium"/>
+                        <Image x:Name="PopUpDialogClose" 
+                               Source="cancelwhite.png" 
+                               WidthRequest="20" Margin="0,0,10,0" 
+                               HorizontalOptions="End"
+                               VerticalOptions="CenterAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={x:Reference PopUpHeaderDialog}, Path=HideDialogCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+
+                </StackLayout>
+            </popupdialogs:PopupDialogView>
+
+            <!--DIALOG WITHOUT BACKGROUND-->
+            <popupdialogs:PopupDialogView x:Name="PopUpBgDialog"
+                                          DialogMargin="20, 90, 20, 90"
+                                          HideDialogCommand="{Binding HideDataEntryCommand, Mode=OneWayToSource}"
+                                          IsShowBackground="False">
+                <!--CREATE YOUR BINDABLE ELEMENTS HERE BASE FROM THE PAGES VIEW MODELS-->
+                <StackLayout>
+                    <!--HEADER-->
+                    <Grid VerticalOptions="Start"
+                                 HorizontalOptions="FillAndExpand"
+                                 HeightRequest="50"
+                                 MinimumHeightRequest="50"
+                                 BackgroundColor="#0783B0">
+                        <Label  VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="Data Entry" 
+                                TextColor="White"
+                                FontSize="Medium"/>
+                        <Image x:Name="PopUpDialogBgClose" 
+                               Source="cancelwhite.png" 
+                               WidthRequest="20" Margin="0,0,10,0" 
+                               HorizontalOptions="End"
+                               VerticalOptions="CenterAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={x:Reference PopUpBgDialog}, Path=HideDialogCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+
+                    <StackLayout Margin="30">
+                        <Entry Placeholder="First Name" Text="{Binding FirstName}"/>
+                        <Entry Placeholder="Last Name" Text="{Binding LastName}"/>
+                        <Button Text="Send" 
+                                Command="{Binding SendCommand}"></Button>
+                    </StackLayout>
+                </StackLayout>
+            </popupdialogs:PopupDialogView>
+
+            <popupdialogs:PopupDialogView x:Name="PopUpListDialog" 
+                                          DialogMargin="10, 60, 10, 60">
+                <!--CREATE YOUR BINDABLE ELEMENTS HERE BASE FROM THE PAGES VIEW MODELS-->
+                <StackLayout>
+                    <!--HEADER-->
+                    <Grid VerticalOptions="Start"
+                                 HorizontalOptions="FillAndExpand"
+                                 HeightRequest="50"
+                                 MinimumHeightRequest="50"
+                                 BackgroundColor="#0783B0">
+                        <Label  VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                Text="Color List" 
+                                TextColor="White"
+                                FontSize="Medium"/>
+
+                        <Image x:Name="PopUpListDialogClose" 
+                               Source="cancelwhite.png" 
+                               WidthRequest="20" Margin="0,0,10,0" 
+                               HorizontalOptions="End"
+                               VerticalOptions="CenterAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={x:Reference PopUpListDialog}, Path=HideDialogCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </Grid>
+
+                    <ListView ItemsSource="{x:Static local:NamedColor.All}"  
+                              Margin="0,0,0,20">
+                        <ListView.RowHeight>
+                            <OnPlatform x:TypeArguments="x:Int32">
+                                <On Platform="iOS, Android" Value="80" />
+                                <On Platform="UWP" Value="90" />
+                            </OnPlatform>
+                        </ListView.RowHeight>
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ContentView Padding="5">
+                                        <StackLayout
+                                            Padding="10">
+                                            <StackLayout Orientation="Horizontal">
+                                                <BoxView Color="{Binding Color}"
+                                                         WidthRequest="50"
+                                                         HeightRequest="50" />
+                                                <StackLayout>
+                                                    <Label Text="{Binding FriendlyName}"
+                                                           FontSize="22"
+                                                           VerticalOptions="StartAndExpand" />
+                                                    <Label Text="{Binding RgbDisplay, StringFormat='RGB = {0}'}"
+                                                           FontSize="16"
+                                                           VerticalOptions="CenterAndExpand" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ContentView>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </popupdialogs:PopupDialogView>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
