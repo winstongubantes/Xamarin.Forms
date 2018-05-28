@@ -1,8 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:CustomIconizeFont.Controls;assembly=CustomIconizeFont"
+             xmlns:constants="clr-namespace:CustomIconizeFont.Constants;assembly=CustomIconizeFont"
              x:Class="CustomIconizeFont.Views.MainPage"
              Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <controls:IconToolbarItem 
+            Icon="{x:Static constants:FontAwesomeConstants.EnvelopeO}"
+            Command="{Binding ShowTabbedPageCommand}"
+            FontFamily="FontAwesome"
+            IconColor="White">
+        </controls:IconToolbarItem>
+        <controls:IconToolbarItem 
+            Icon="{x:Static constants:FontAwesomeConstants.Music}"
+            Command="{Binding ShowTabbedPageCommand}"
+            FontFamily="FontAwesome"
+            IconColor="White">
+        </controls:IconToolbarItem>
+    </ContentPage.ToolbarItems>
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <Label Text="Welcome to Xamarin Forms and Prism!" />

@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using CustomIconizeFont.Droid.Custom.Utils;
 using Prism;
 using Prism.Ioc;
 
@@ -13,6 +14,8 @@ namespace CustomIconizeFont.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+
+            Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
 
             base.OnCreate(bundle);
 

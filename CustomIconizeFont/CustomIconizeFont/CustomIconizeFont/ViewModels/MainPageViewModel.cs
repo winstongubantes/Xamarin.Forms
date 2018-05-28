@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Input;
+using CustomIconizeFont.Views;
 
 namespace CustomIconizeFont.ViewModels
 {
@@ -14,6 +16,13 @@ namespace CustomIconizeFont.ViewModels
             : base (navigationService)
         {
             Title = "Main Page";
+
+            ShowTabbedPageCommand = new DelegateCommand(() =>
+            {
+                //NavigationService.NavigateAsync(nameof(SampleTabbedPage));
+            });
         }
+
+        public ICommand ShowTabbedPageCommand { get; }
     }
 }

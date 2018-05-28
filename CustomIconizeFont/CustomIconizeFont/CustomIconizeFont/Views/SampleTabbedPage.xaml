@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls:FlatTabbedPage
+            xmlns:controls="clr-namespace:CustomIconizeFont.Controls"
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:constants="clr-namespace:CustomIconizeFont.Constants;assembly=CustomIconizeFont"
+            xmlns:views="clr-namespace:CustomIconizeFont.Views;assembly=CustomIconizeFont"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="CustomIconizeFont.Views.SampleTabbedPage"
+            FontFamily="FontAwesome"
+            Title="Tabbed Page">
+    <views:MainPage Icon="{x:Static constants:FontAwesomeConstants.EnvelopeO}"
+                    Title="Main">
+    </views:MainPage>
+    <ContentPage Icon="{x:Static constants:FontAwesomeConstants.Glass}"
+                 Title="Glass">
+        <StackLayout>
+
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Icon="{x:Static constants:FontAwesomeConstants.Heart}"
+                 Title="Test">
+        <StackLayout>
+
+        </StackLayout>
+    </ContentPage>
+</controls:FlatTabbedPage>

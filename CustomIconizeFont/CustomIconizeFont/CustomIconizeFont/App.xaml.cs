@@ -1,4 +1,5 @@
-﻿using Prism;
+﻿using CustomIconizeFont.Controls;
+using Prism;
 using Prism.Ioc;
 using CustomIconizeFont.ViewModels;
 using CustomIconizeFont.Views;
@@ -24,13 +25,14 @@ namespace CustomIconizeFont
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("FlatNavigationPage/SampleTabbedPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<FlatNavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
+            containerRegistry.RegisterForNavigation<SampleTabbedPage>();
         }
     }
 }
