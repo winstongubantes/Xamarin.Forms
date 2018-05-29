@@ -9,20 +9,25 @@
             prism:ViewModelLocator.AutowireViewModel="True"
             x:Class="CustomIconizeFont.Views.SampleTabbedPage"
             FontFamily="FontAwesome"
+            FontSize="33"
             Title="Tabbed Page">
     <views:MainPage Icon="{x:Static constants:FontAwesomeConstants.EnvelopeO}"
                     Title="Main">
     </views:MainPage>
     <ContentPage Icon="{x:Static constants:FontAwesomeConstants.Glass}"
                  Title="Glass">
-        <StackLayout>
-
+        <StackLayout Padding="20">
+            <Entry Placeholder="Test Entry"></Entry>
+            <Entry Placeholder="Test Entry"></Entry>
+            <Entry Placeholder="Test Entry"></Entry>
         </StackLayout>
     </ContentPage>
     <ContentPage Icon="{x:Static constants:FontAwesomeConstants.Heart}"
                  Title="Test">
         <StackLayout>
-
+            <Entry Placeholder="Test Entry"></Entry>
+            <Entry Placeholder="Test Entry"></Entry>
+            <Entry Placeholder="Test Entry"></Entry>
         </StackLayout>
     </ContentPage>
 </controls:FlatTabbedPage>

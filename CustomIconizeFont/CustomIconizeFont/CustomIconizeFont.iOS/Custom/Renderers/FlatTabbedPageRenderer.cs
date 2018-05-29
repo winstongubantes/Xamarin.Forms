@@ -34,10 +34,15 @@ namespace CustomIconizeFont.iOS.Custom.Renderers
         {
             base.ViewWillAppear(animated);
 
+            var element = (FlatTabbedPage)Element;
+
             foreach (var tab in TabBar.Items)
             {
                 var icon = _icons?[(Int32) tab.Tag];
-                using (var image = PlatformExtensions.ToUiImage(icon, _fontFamily, 25f))
+
+                float.TryParse($"{element.FontSize}", out var fontSize);
+
+                using (var image = PlatformExtensions.ToUiImage(icon, _fontFamily, fontSize))
                 {
                     tab.Image = image;
                     tab.SelectedImage = image;

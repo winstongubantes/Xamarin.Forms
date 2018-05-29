@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Android.Content;
 using Android.Support.Design.Widget;
 using CustomIconizeFont.Controls;
@@ -74,7 +75,10 @@ namespace CustomIconizeFont.Droid.Custom.Renderers
                 if (_icons != null && i < _icons.Count)
                 {
                     var iconKey = _icons[i];
-                    var drawable = new IconDrawable(context, iconKey, element.FontFamily).Color(Color.White.ToAndroid()).SizeDp(20);
+
+                    int.TryParse($"{element.FontSize}", out var fontSize);
+
+                    var drawable = new IconDrawable(context, iconKey, element.FontFamily).Color(Color.White.ToAndroid()).SizeDp(fontSize);
 
                     tab.SetIcon(drawable);
                 }

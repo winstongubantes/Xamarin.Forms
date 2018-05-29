@@ -21,7 +21,7 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
+        <Image Source="burjkalifha_bg.jpg"></Image>
     </StackLayout>
 
 </ContentPage>

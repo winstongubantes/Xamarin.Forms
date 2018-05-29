@@ -6,6 +6,13 @@ namespace CustomIconizeFont.Controls
     public class FlatTabbedPage : TabbedPage
     {
         public static BindableProperty FontFamilyProperty = BindableProperty.Create(nameof(FontFamily), typeof(string), typeof(FlatTabbedPage), null);
+        public static BindableProperty FontSizeProperty = BindableProperty.Create(nameof(FontSize), typeof(double), typeof(FlatTabbedPage), 20d);
+
+        public double FontSize
+        {
+            get => (double)GetValue(FontSizeProperty);
+            set => SetValue(FontSizeProperty, value);
+        }
 
         public string FontFamily
         {
