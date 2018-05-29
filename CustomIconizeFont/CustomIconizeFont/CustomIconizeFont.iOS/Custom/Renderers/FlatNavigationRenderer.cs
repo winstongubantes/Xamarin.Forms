@@ -49,7 +49,8 @@ namespace CustomIconizeFont.iOS.Custom.Renderers
 
             var imageView = new Image
             {
-                Source = element.Logo
+                Source = element.Logo,
+                Margin = new Thickness(150, 100,0, 0)
             };
 
             var width = UIScreen.MainScreen.Bounds.Size.Width;

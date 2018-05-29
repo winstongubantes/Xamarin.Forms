@@ -90,6 +90,8 @@ namespace CustomIconizeFont.Droid.Custom.Extensions
             {
                 toolbar.Logo = view.Context.GetDrawable(navPage.Logo);
                 //toolbar.Logo.SetLayoutDirection(LayoutDirection.Ltr);
+
+
             }  
         }
     }
