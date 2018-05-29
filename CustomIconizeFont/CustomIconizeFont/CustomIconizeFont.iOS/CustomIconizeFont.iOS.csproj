@@ -91,6 +91,7 @@
     <Compile Include="Custom\Extensions\PlatformExtensions.cs" />
     <Compile Include="Custom\Renderers\FlatNavigationRenderer.cs" />
     <Compile Include="Custom\Renderers\FlatTabbedPageRenderer.cs" />
+    <Compile Include="Helpers\FormsViewToNativeiOS.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />

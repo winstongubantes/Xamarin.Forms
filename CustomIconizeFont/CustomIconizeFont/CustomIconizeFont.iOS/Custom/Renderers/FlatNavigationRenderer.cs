@@ -4,6 +4,7 @@ using CoreGraphics;
 using CustomIconizeFont.Controls;
 using CustomIconizeFont.iOS.Custom.Extensions;
 using CustomIconizeFont.iOS.Custom.Renderers;
+using CustomIconizeFont.iOS.Helpers;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -36,16 +37,27 @@ namespace CustomIconizeFont.iOS.Custom.Renderers
 
         private void SetNavigationIcon()
         {
-            var element = (FlatNavigationPage)this.Element;
+            if(!(this.Element is FlatNavigationPage element)) return;
 
-            if(element.Icon == null) return;
+            //var image = UIImage.FromBundle(element.Logo);
+            //var imageView = new UIImageView(new CGRect(0, 0, image.Size.Width, 40));
+            //imageView.ContentMode = UIViewContentMode.ScaleAspectFit;
+            //imageView.Image = image; //image.ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
 
-            var image = UIImage.FromBundle(element.Icon.File);
-            var imageView = new UIImageView(new CGRect(0, 0, image.Size.Width, 40));
-            imageView.ContentMode = UIViewContentMode.ScaleAspectFit;
-            imageView.Image = image; //image.ImageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate);
+            if (element.Logo == null) return;
+            var image = UIImage.FromBundle(element.Logo);
 
-            TopViewController.NavigationItem.TitleView = imageView;
+            var imageView = new Image
+            {
+                Source = element.Logo
+            };
+
+            var width = UIScreen.MainScreen.Bounds.Size.Width;
+
+            var view = imageView.ConvertFormsToNative(new CGRect(0, 0, width - 10, 40));
+            //view.ContentMode = UIViewContentMode.ScaleAspectFit;
+
+            TopViewController.NavigationItem.TitleView = view;
         }
     }
 }

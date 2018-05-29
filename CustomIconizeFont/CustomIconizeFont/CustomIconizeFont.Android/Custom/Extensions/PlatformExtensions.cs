@@ -84,8 +84,13 @@ namespace CustomIconizeFont.Droid.Custom.Extensions
                     menuItem.SetShowAsAction(ShowAsAction.Always);
             }
 
-            if(page.Icon != null)
-                toolbar.Logo = view.Context.GetDrawable(page.Icon.File);
+            if (!(page is FlatNavigationPage navPage)) return;
+
+            if (navPage.Logo != null)
+            {
+                toolbar.Logo = view.Context.GetDrawable(navPage.Logo);
+                //toolbar.Logo.SetLayoutDirection(LayoutDirection.Ltr);
+            }  
         }
     }
 }

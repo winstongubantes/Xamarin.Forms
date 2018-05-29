@@ -11,7 +11,7 @@ namespace CustomIconizeFont.Views
         public WithIconNavigationPage(Page root) : base(root)
         {
             //SET THE LOGO FOR YOUR NAVIGATION PAGE
-            this.Icon = "test_logo.png";
+            this.Logo = "test_logo.png";
         }
     }
 }

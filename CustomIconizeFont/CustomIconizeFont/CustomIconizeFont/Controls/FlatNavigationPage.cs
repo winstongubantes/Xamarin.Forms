@@ -7,6 +7,14 @@ namespace CustomIconizeFont.Controls
 {
     public class FlatNavigationPage : NavigationPage
     {
+        public static BindableProperty LogoProperty = BindableProperty.Create(nameof(Logo), typeof(string), typeof(FlatNavigationPage), null);
+
+        public string Logo
+        {
+            get => (string)GetValue(LogoProperty);
+            set => SetValue(LogoProperty, value);
+        }
+
         public FlatNavigationPage(Page root)
             : base(root)
         {
