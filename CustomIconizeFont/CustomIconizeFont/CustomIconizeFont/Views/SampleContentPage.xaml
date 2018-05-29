@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:CustomIconizeFont.Controls;assembly=CustomIconizeFont"
+             xmlns:constants="clr-namespace:CustomIconizeFont.Constants;assembly=CustomIconizeFont"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="CustomIconizeFont.Views.SampleContentPage">
+    <ContentPage.ToolbarItems>
+        <controls:IconToolbarItem 
+            Icon="{x:Static constants:FontAwesomeConstants.EnvelopeO}"
+            Command="{Binding TouchToolbarItemCommand}"
+            FontFamily="FontAwesome"
+            IconColor="White">
+        </controls:IconToolbarItem>
+        <controls:IconToolbarItem 
+            Icon="{x:Static constants:FontAwesomeConstants.Music}"
+            Command="{Binding TouchToolbarItemCommand}"
+            FontFamily="FontAwesome"
+            IconColor="White">
+        </controls:IconToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid VerticalOptions="FillAndExpand" 
+              HorizontalOptions="FillAndExpand">
+            <Image Source="burjkalifha_bg.jpg" Aspect="AspectFill"
+                   VerticalOptions="FillAndExpand"/>
+            <StackLayout VerticalOptions="End" Margin="20">
+                <Button BackgroundColor="#2196F3"
+                        TextColor="White"
+                        Text="Go Back" 
+                        Command="{Binding GoBackCommand}"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

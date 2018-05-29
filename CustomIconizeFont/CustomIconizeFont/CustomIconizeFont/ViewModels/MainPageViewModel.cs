@@ -23,12 +23,12 @@ namespace CustomIconizeFont.ViewModels
             _pageDialogService = pageDialogService;
             Title = "Main Page";
 
-            ShowTabbedPageCommand = new DelegateCommand(() =>
+            ShowNavigation = new DelegateCommand<string>(path =>
                 {
-                    _pageDialogService.DisplayAlertAsync("Hello", "", "Ok");
+                    NavigationService.NavigateAsync(path);
                 });
         }
 
-        public ICommand ShowTabbedPageCommand { get; }
+        public ICommand ShowNavigation { get; }
     }
 }

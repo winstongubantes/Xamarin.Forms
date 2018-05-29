@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Android.Content;
 using Android.Graphics.Drawables;
 using Android.Support.V7.Widget;
@@ -82,6 +83,9 @@ namespace CustomIconizeFont.Droid.Custom.Extensions
                 if (toolbarItem.Order != ToolbarItemOrder.Secondary)
                     menuItem.SetShowAsAction(ShowAsAction.Always);
             }
+
+            if(page.Icon != null)
+                toolbar.Logo = view.Context.GetDrawable(page.Icon.File);
         }
     }
 }

@@ -106,5 +106,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\burjkalifha_bg.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\test_logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

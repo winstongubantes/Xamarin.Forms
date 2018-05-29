@@ -5,23 +5,22 @@
              xmlns:constants="clr-namespace:CustomIconizeFont.Constants;assembly=CustomIconizeFont"
              x:Class="CustomIconizeFont.Views.MainPage"
              Title="{Binding Title}">
-    <ContentPage.ToolbarItems>
-        <controls:IconToolbarItem 
-            Icon="{x:Static constants:FontAwesomeConstants.EnvelopeO}"
-            Command="{Binding ShowTabbedPageCommand}"
-            FontFamily="FontAwesome"
-            IconColor="White">
-        </controls:IconToolbarItem>
-        <controls:IconToolbarItem 
-            Icon="{x:Static constants:FontAwesomeConstants.Music}"
-            Command="{Binding ShowTabbedPageCommand}"
-            FontFamily="FontAwesome"
-            IconColor="White">
-        </controls:IconToolbarItem>
-    </ContentPage.ToolbarItems>
+    <StackLayout HorizontalOptions="Center" 
+                 VerticalOptions="Center">
+        <Button Text="Show NavigationPage With Logo"
+                Command="{Binding ShowNavigation}"
+                CommandParameter="app:///WithIconNavigationPage/BlankPage"/>
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Image Source="burjkalifha_bg.jpg"></Image>
+        <Button Text="Show NavigationPage With Icon Toolbar"
+                Command="{Binding ShowNavigation}"
+                CommandParameter="app:///FlatNavigationPage/SampleContentPage"/>
+
+        <Button Text="Show TabbedPage With Icons"
+                Command="{Binding ShowNavigation}"
+                CommandParameter="app:///SampleTabbedPage"/>
+
+        <Button Text="Show Combination"
+                Command="{Binding ShowNavigation}"
+                CommandParameter="app:///WithIconNavigationPage/SampleTabbedPage"/>
     </StackLayout>
-
 </ContentPage>

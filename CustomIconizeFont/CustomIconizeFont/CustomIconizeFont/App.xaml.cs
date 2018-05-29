@@ -25,14 +25,17 @@ namespace CustomIconizeFont
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("FlatNavigationPage/SampleTabbedPage");
+            await NavigationService.NavigateAsync($"{nameof(FlatNavigationPage)}/{nameof(Views.MainPage)}");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<FlatNavigationPage>();
+            containerRegistry.RegisterForNavigation<WithIconNavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
             containerRegistry.RegisterForNavigation<SampleTabbedPage>();
+            containerRegistry.RegisterForNavigation<SampleContentPage>();
+            containerRegistry.RegisterForNavigation<BlankPage>();
         }
     }
 }

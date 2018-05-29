@@ -207,5 +207,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\burjkalifha_bg.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\test_logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
