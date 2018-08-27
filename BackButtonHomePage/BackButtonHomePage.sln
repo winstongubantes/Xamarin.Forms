@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackButtonHomePage", "BackButtonHomePage\BackButtonHomePage\BackButtonHomePage.csproj", "{5E41AE4C-35CF-44E7-A119-AC7BD7E026ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackButtonHomePage.Android", "BackButtonHomePage\BackButtonHomePage.Android\BackButtonHomePage.Android.csproj", "{6BF19897-AAE4-4D22-8A46-4E389582D1F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E41AE4C-35CF-44E7-A119-AC7BD7E026ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E41AE4C-35CF-44E7-A119-AC7BD7E026ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E41AE4C-35CF-44E7-A119-AC7BD7E026ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E41AE4C-35CF-44E7-A119-AC7BD7E026ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF19897-AAE4-4D22-8A46-4E389582D1F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF19897-AAE4-4D22-8A46-4E389582D1F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF19897-AAE4-4D22-8A46-4E389582D1F1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6BF19897-AAE4-4D22-8A46-4E389582D1F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF19897-AAE4-4D22-8A46-4E389582D1F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF19897-AAE4-4D22-8A46-4E389582D1F1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14860B18-5B0A-49FE-8CAD-F5A5457B68C8}
+	EndGlobalSection
+EndGlobal
